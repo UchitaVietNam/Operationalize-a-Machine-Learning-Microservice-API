@@ -1,9 +1,9 @@
 <paste log output from Kubernetes-mediated prediction, here>
 
-nguyentuanvu@NguyennoMacBook-Pro DevOps_Microservices % bash run_kubernetes.sh              
+(.devops) nguyentuanvu@NguyennoMacBook-Pro DevOps_Microservices % bash run_kubernetes.sh 
 Error from server (AlreadyExists): pods "devops" already exists
-NAME     READY   STATUS    RESTARTS   AGE
-devops   1/1     Running   0          4m11s
+NAME     READY   STATUS    RESTARTS      AGE
+devops   1/1     Running   1 (17h ago)   17h
 Forwarding from 127.0.0.1:8000 -> 80
 Forwarding from [::1]:8000 -> 80
 Handling connection for 8000
@@ -22,7 +22,7 @@ Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdo
 WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:80
- * Running on http://10.244.0.15:80
+ * Running on http://10.244.0.17:80
 Press CTRL+C to quit
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/sklearn/ensemble/gradient_boosting.py:34: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
@@ -36,27 +36,24 @@ Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdo
 /usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator GradientBoostingRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
   UserWarning)
  * Debugger is active!
- * Debugger PIN: 105-372-032
-127.0.0.1 - - [29/Jul/2023 11:08:10] "GET / HTTP/1.1" 200 -
-[2023-07-29 11:08:48,582] INFO in app: JSON payload: 
+ * Debugger PIN: 121-749-857
+[2023-07-30 04:23:06,219] INFO in app: JSON payload: 
 {'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
-[2023-07-29 11:08:48,602] INFO in app: Inference payload DataFrame: 
+[2023-07-30 04:23:06,247] INFO in app: Inference payload DataFrame: 
    CHAS     RM    TAX  PTRATIO      B  LSTAT
 0     0  6.575  296.0     15.3  396.9   4.98
-[2023-07-29 11:08:48,612] INFO in app: Scaling Payload: 
+[2023-07-30 04:23:06,279] INFO in app: Scaling Payload: 
    CHAS     RM    TAX  PTRATIO      B  LSTAT
 0     0  6.575  296.0     15.3  396.9   4.98
-[2023-07-29 11:08:48,615] INFO in app: Output prediction value: 
+[2023-07-30 04:23:06,286] INFO in app: Output prediction value: 
 [20.35373177134412]
-127.0.0.1 - - [29/Jul/2023 11:08:48] "POST /predict HTTP/1.1" 200 -
-[2023-07-29 11:11:18,735] INFO in app: JSON payload: 
-{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
-[2023-07-29 11:11:18,748] INFO in app: Inference payload DataFrame: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-[2023-07-29 11:11:18,773] INFO in app: Scaling Payload: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-[2023-07-29 11:11:18,776] INFO in app: Output prediction value: 
-[20.35373177134412]
-127.0.0.1 - - [29/Jul/2023 11:11:18] "POST /predict HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jul/2023 04:23:06] "POST /predict HTTP/1.1" 200 -
+(.devops) nguyentuanvu@NguyennoMacBook-Pro DevOps_Microservices % 
+
+nguyentuanvu@NguyennoMacBook-Pro DevOps_Microservices % bash make_prediction.sh 
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
